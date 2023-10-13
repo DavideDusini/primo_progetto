@@ -19,7 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('prima_app', include("prima_app.urls", namespace="prima_app"))
-    path('', "templates/index_root.html")
+    path('', include("prima_app.urls", namespace="prima_app"))
     
 ]
