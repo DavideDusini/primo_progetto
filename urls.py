@@ -1,5 +1,5 @@
 from django.urls import path
-from views import index_root
+from primo_progetto.views import index_root
 
 app_name="primo_progetto"
 urlpatterns=[
