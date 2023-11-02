@@ -28,7 +28,7 @@ def home(request):
   print(context)
   
 
-  return render(request, "homepage.html", context)
+  return render(request, "homepage_articoli.html", context)
 
 def articoloDetailView(request, pk):
   articolo=get_object_or_404(Articolo, pk=pk)
