@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} {{block.super}} | Somma {% endblock title %}
+{% block content %}
+    var1={{var1}}<br>
+    var2={{var2}}<br>
+    somma={{somma}}
+    {% if var1 < var2%}
+        <p style="color:red">{{var1}} </p>
+        <p style="color:green">{{var2}} </p>
+    {% elif var1 > var2%}
+        <p style="color:green">{{var1}} </p>
+        <p style="color:red">{{var2}} </p>
+    {% else %}
+        <p style="color:black">{{var1}} </p>
+        <p style="color:black">{{var2}} </p>
+    {% endif %}
+    
+{% endblock content %}
