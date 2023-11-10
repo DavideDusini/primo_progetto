@@ -43,7 +43,7 @@ def listaArticoli(request, pk):
   return render(request, 'lista_articoli.html', context)
 
 
-def listaArticoli(request, pk=None):
+def listaArticolo(request, pk=None):
   articoli = Articolo.objects.all()
   context = {
     'articoli': articoli,
