@@ -49,3 +49,22 @@ def listaArticolo(request, pk=None):
     'articoli': articoli,
   }
   return render(request, 'lista_articoli.html', context)
+
+def queryBase(request):
+  #1. Tutti gli articoli scritti da giornalisti di un certo cognome:
+  articoli_cognome = Articolo.objects.filter(giornalista_cognome='Rossi')
+  #2. Totale
+  numero_totale_articoli = Articolo.objects.count()
+
+  #3.Contare il numero di articoli scritti da un giornalista specifico:
+  giornalista_3 = Giornalista.objects.get(id=3)
+  numero_articoli_giornalista_3 = Articolo.objects.filter(giornalista = giornalista_3).count()
+
+  #4. Ordinare gli articoli per numero di visualizzazioni in ordine decrescente:
+  articoli_ordinati = Articolo.objects.order_by('-visualizzazioni')
+
+  #5. tutti gli articoli che non hanno visualizzazioni:
+  articoli_senza_visualizzazioni = Articolo.objects.filter(visualizzazioni=0)
+
+  #6. articolo più visualizzato
+  articolo_piu_visualizzato = Articolo.objects.filter('-visualizzazioni').first()
