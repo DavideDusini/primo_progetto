@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %} {{block.super}} | Query {%endblock title%}
+{% block content%}
+{% for articolo in articoli_cognome%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+
+<p>Totale articoli: {{numero_totale_articoli}}</p>
+<p>Numero articoli scritti da giornalista 3: {{numero_articoli_giornalista_3}}</p>
+<p>Articoli ordinati per numero di visualizzazioni</p>
+{% for articolo in articoli_ordinati%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+<p>Articoli senza visualizzazioni</p>
+{% for articolo in articoli_senza_visualizzazioni%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+
+<p>Articoli più visualizzato</p>
+<p><strong>Titolo: </strong>{{articolo_piu_visualizzato.titolo}}</p>
+<p><strong>Contenuto: </strong>{{articolo_piu_visualizzato.contenuto}}</p>
+<p><strong>Autore: </strong>{{articolo_piu_visualizzato.giornalista}}</p>
+<hr>
+<p>Giornalisti nati dopo il 1990</p>
+{% for giornalista in giornalisti_data%}
+<p><strong>{{giornalista.nome}} {{giornalista.cognome}}</strong></p>
+{%endfor%}
+<p>Articoli dopo il 1 gennaio 2023</p>
+{% for articolo in articoli_del_giorno%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+<p>Articoli pubblicati nel 2023</p>
+{% for articolo in articoli_periodo%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+<p><strong>Giornalista più giovane: </strong>{{giornalista_giovane}}</p>
+<p><strong>Giornalista più vecchio: </strong>{{giornalista_anziano}}</p>
+<p>Ulimi 5 articoli</p>
+{% for articolo in ultimi%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+<p>Articoli che contengono "Leclerc" nel titolo</p>
+{% for articolo in articoli_parola%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+{% endblock content%}
