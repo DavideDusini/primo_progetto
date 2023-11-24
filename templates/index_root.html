@@ -2,5 +2,10 @@
     
     {% block title %} {{block.super}} | Document{% endblock title %}
     {% block content %}
-    
+    <h1>Primo progetto - Root menù</h1>
+    <ul>
+        <li><a href="{% url 'prima_app:index_primaApp'%}">Index prima app</a></li>
+        <li><a href="{% url 'seconda_app:index_secondaApp'%}">Index seconda app</a></li>
+        <li><a href="{% url 'news:index_news'%}">Index news</a></li>
+    </ul>
     {% endblock content %}

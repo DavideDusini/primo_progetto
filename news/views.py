@@ -2,6 +2,8 @@ from django.shortcuts import HttpResponse, render, get_object_or_404
 from .models import *
 import datetime
 # Create your views here.
+def index(request):
+  return render(request,"index_news.html")
 def home(request):
   """  a = ""
     g = ""
@@ -98,6 +100,30 @@ def queryBase(request):
   #15 Tutti gli articoli che contengono una certa parola nel titolo
   articoli_parola = Articolo.objects.filter(titolo__contains='Leclerc')
 
+  #16 Articoli pubblicati in un certo mese di un anno specifico
+
+  articoli_mese_anno = Articolo.objects.filter(data__month=1, data__year=2023)
+
+  #17 Giornalisti con almeno un articolo con più di 100 visualizzazioni
+  giornalisti_con_articoli_popolari= Giornalista.objects.filter(articoli__visualizzazioni__gte=100).distinct()
+
+  #UTILIZZO DI più CONDIZIONI DI SELEZIONE
+  data = datetime.date(1990,1,1)
+  visualizzazioni = 50
+
+  #18 scrivi quali articoli vengono selezionati
+  articoli_con_and = Articolo.objects.filter(giornalista__anno_di_nascita__gt=data, visualizzazioni__gte=visualizzazioni)
+
+  #19 scrivi quli articoli vengono selezionati con OR
+  from django.db.models import Q
+  articoli_con_or= Articolo.objects.filter(Q(giornalista__anno_di_nascita__gt=data), Q(visualizzazioni__lte=visualizzazioni) )
+
+  #20 NOT
+  articoli_con_not=Articolo.objects.filter(~Q(giornalista__anno_di_nascita__lt=data))
+
+  #21 exlude: esclude tutti gli articoli, in questo caso, prima di una determinata data
+  articoli_con_exlude=Articolo.objects.exclude(giornalista__anno_di_nascita__lt=data)
+
   context={
     'articoli_cognome':articoli_cognome,
     'numero_totale_articoli':numero_totale_articoli,
@@ -113,6 +139,13 @@ def queryBase(request):
     'giornalista_anziano':giornalista_anziano,
     'ultimi':ultimi,
     'articoli_minime_visualizzazioni':articoli_minime_visualizzazioni,
-    'articoli_parola':articoli_parola
+    'articoli_parola':articoli_parola,
+    'articoli_mese_anno':articoli_mese_anno,
+    'giornalisti_con_articoli_popolari':giornalisti_con_articoli_popolari,
+    'articoli_con_and':articoli_con_and,
+    'articoli_con_or':articoli_con_or,
+    'articoli_con_not':articoli_con_not,
+    'articoli_con_exlude':articoli_con_exlude
+
   }
   return render(request, "query.html", context)

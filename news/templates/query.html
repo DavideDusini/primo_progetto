@@ -58,7 +58,51 @@
     <hr>
 {%endfor%}
 <p>Articoli che contengono "Leclerc" nel titolo</p>
+{% for articolo in articoli_mese_anno%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+
+<p> Articoli pubblicati in un certo mese di un anno specifico</p>
 {% for articolo in articoli_parola%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+
+<p> Giornalisti con almeno un articolo con più di 100 visualizzazioni</p>
+{% for giornalista in giornalisti_con_articoli_popolari%}
+    <p><strong>nome: </strong>{{giornalista.nome}}</p>
+    <p><strong>cognome: </strong>{{giornalista.cognome}}</p>
+    <hr>
+{%endfor%}
+<p> Articoli con data dopo il primo gennaio del 1990 e almeno 50 visualizzazioni</p>
+{% for articolo in articoli_con_and%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+
+<p> Articoli con data dopo il primo gennaio del 1990 o meno 50 visualizzazioni</p>
+{% for articolo in articoli_con_or%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+<p> Articoli con data dopo il primo gennaio del 1990</p>
+{% for articolo in articoli_con_not%}
+    <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
+    <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
+    <p><strong>Autore: </strong>{{articolo.giornalista}}</p>
+    <hr>
+{%endfor%}
+<p> Tutti gli articoli che vengono dopo il primo gennaio del 1990</p>
+{% for articolo in articoli_con_exlude%}
     <p><strong>Titolo: </strong>{{articolo.titolo}}</p>
     <p><strong>Contenuto: </strong>{{articolo.contenuto}}</p>
     <p><strong>Autore: </strong>{{articolo.giornalista}}</p>

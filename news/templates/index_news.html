@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} {{block.super}} | Index{% endblock title %}
+{% block content %}
+    <h1>News - root menù</h1>
+    <ol>
+        <li><a href="{% url 'news:home'%}">Home page benvenuto</a></li>
+        <li><a href="{% url 'news:lista_articolo'%}">Lista articolo</a></li>
+        <li><a href="{% url 'news:query_base'%}">Query base</a></li>
+    </ol>
+    {% endblock content %}
