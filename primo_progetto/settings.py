@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'prima_app',
     'seconda_app',
-    'news'
+    'news',
+    'prova_pratica_1'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,8 @@ TEMPLATES = [
         'DIRS': [os.path.join(BASE_DIR, 'prima_app/templates'),
                  os.path.join(BASE_DIR, 'templates'),
                  os.path.join(BASE_DIR, 'seconda_app/templates'), 
-                 os.path.join(BASE_DIR, 'news/templates')],
+                 os.path.join(BASE_DIR, 'news/templates'),
+                 os.path.join(BASE_DIR, 'prova_pratica_1/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %} {{block.super}} | index prova pratica {% endblock title %}
+{% block content %}
+    <ul>
+        <li><a href="{% url 'prova_pratica_1:view_a'%}">somma</a></li>
+        <li><a href="{% url 'prova_pratica_1:view_b'%}">media</a></li>
+        <li><a href="{% url 'prova_pratica_1:view_c'%}">voti</a></li>
+    </ul>
+
+{% endblock content %}
