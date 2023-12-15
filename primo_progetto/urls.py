@@ -24,6 +24,6 @@ urlpatterns = [
     path('prima_app/', include("prima_app.urls", namespace="prima_app")),
     path('', views.index,name="views"),
     path('seconda_app/', include("seconda_app.urls", namespace="seconda_app")),
-    path('news/', include("news.urls", namespace="news"))
-    
+    path('news/', include("news.urls", namespace="news")),
+    path('voti/', include("voti.urls",namespace="voti"))
 ]

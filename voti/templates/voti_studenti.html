@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} {{block.super}} | Voti Studenti {% endblock title %}
+{% block content %}
+
+<ul>
+    {% for studente in voti.keys%}
+        <li>{{studente}}</li>
+        <ul>
+            {{cont}}
+            {%for testa,corpo in voti.items%}
+            
+                <li>{{corpo}}</li>
+               
+            {%endfor%} 
+        </ul>
+    {%endfor%}
+    </ul>
+{% endblock content %}
