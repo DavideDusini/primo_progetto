@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+def index_voti(request):
+  return render(request,"home_voti.html")
 def view_a(request):
     materie = ["Matematica","Italiano","Inglese","Storia","Geografia"]
 
