@@ -1,17 +1,25 @@
 from django.http import JsonResponse
 from products.models import *
+import json
+from django.core.serializers.json import DjangoJSONEncoder
 # Create your views here.
 
 def product_list(request):
     products = Product.objects.all()
-    data = {"products": list(products.value())}
+    
+    print(products.values())
+    data = {"products": list(products.values())}
+
+    # data = json.dumps(list(products.values()),cls=DjangoJSONEncoder)
+    # #{"products": list(products)}
     print(type(data))
     response = JsonResponse(data)
+    # print(data[0])
     return response
 
 def product_detail(request, pk):
     try:
-        product = Product.objects. get (pk=pk)
+        product = Product.objects.get(pk=pk)
         data = {"product": {
             "name": product.name,
             "manufacturer": product.manufacturer. name,
