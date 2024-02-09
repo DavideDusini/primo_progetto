@@ -25,6 +25,7 @@ urlpatterns = [
     path('', views.index,name="views"),
     path('seconda_app/', include("seconda_app.urls", namespace="seconda_app")),
     path('news/', include("news.urls", namespace="news")),
-    path('prova_pratica_1/', include("prova_pratica_1.urls", namespace="prova_pratica_1"))
+    path('prova_pratica_1/', include("prova_pratica_1.urls", namespace="prova_pratica_1")),
+    path('products/', include("products.urls", namespace="products")),
     
 ]
