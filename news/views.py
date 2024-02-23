@@ -1,6 +1,7 @@
 from django.shortcuts import HttpResponse, render, get_object_or_404
 from .models import *
 import datetime
+from django.http import JsonResponse
 # Create your views here.
 def index(request):
   return render(request,"index_news.html")
@@ -154,3 +155,54 @@ def queryBase(request):
 
   }
   return render(request, "query.html", context)
+
+
+def giornalisti_list_api(request):
+  giornalisti=Giornalista.objects.all()
+  data={'giornalisti':list(giornalisti.values("pk","nome","cognome"))}
+  response=JsonResponse(data)
+  return response
+
+def giornalista_api(request,pk):
+  try:
+    giornalista=Giornalista.objects.get(pk=pk)
+    data={
+      'giornalista':{
+        "nome":giornalista.nome,
+        "cognome":giornalista.cognome,
+      }
+    }
+    response=JsonResponse(data)
+  except Giornalista.DoesNotExist:
+    response=JsonResponse({
+      "error":{
+        "code":404,
+        "message":"Giornalista non trovato"
+      }
+    }, status=404)
+  return response
+
+def articoli_list_api(request):
+  articoli=Articolo.objects.all()
+  data={'articoli':list(articoli.values("pk","titolo","contenuto","giornalista"))}
+  response=JsonResponse(data)
+  return response
+
+def articoli_api(request,pk):
+  try:
+    articolo=Articolo.objects.get(pk=pk)
+    data={
+      'articolo':{
+        "titolo":articolo.titolo,
+        "contenuto":articolo.contenuto,
+      }
+    }
+    response=JsonResponse(data)
+  except Articolo.DoesNotExist:
+    response=JsonResponse({
+      "error":{
+        "code":404,
+        "message":"Articolo non trovato"
+      }
+    }, status=404)
+  return response
