@@ -15,4 +15,6 @@ urlpatterns=[
     path('giornalista_api/<int:pk>', giornalista_api, name="giornalista_api"),
     path('articoli_list_api', articoli_list_api, name="articoli_list_api"),
     path('articoli_api/<int:pk>', articoli_api, name="articoli_api"),
+    path('json1',json1,name="json1"),
+    path('json2',json2,name="json2"),
 ]

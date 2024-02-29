@@ -206,3 +206,9 @@ def articoli_api(request,pk):
       }
     }, status=404)
   return response
+
+def json1(request):
+  return render(request, "json1.html")
+
+def json2(request):
+  return render(request, "json2.html")
