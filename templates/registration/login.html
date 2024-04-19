@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+{% if form.errors %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        Username e Password non combaciano: riprova!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endif %}
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+<tr>
+  <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+</tr>
+<tr>
+  <td>{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</tr>
+</table>
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+{# Assumes you setup the password_reset view in your URLconf #}
+<p><a href="{% url 'password_reset' %}">Password dimenticata?</a></p>
+{% endblock %}
