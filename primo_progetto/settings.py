@@ -28,7 +28,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,6 +42,8 @@ INSTALLED_APPS = [
     'prova_pratica_1',
     'products',
     'corsheaders',
+    'forms_app',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -65,7 +66,9 @@ TEMPLATES = [
                  os.path.join(BASE_DIR, 'templates'),
                  os.path.join(BASE_DIR, 'seconda_app/templates'), 
                  os.path.join(BASE_DIR, 'news/templates'),
-                 os.path.join(BASE_DIR, 'prova_pratica_1/templates')],
+                 os.path.join(BASE_DIR, 'prova_pratica_1/templates'),
+                 os.path.join(BASE_DIR, 'form_app/temlates')],
+                 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
