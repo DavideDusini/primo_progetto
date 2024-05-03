@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'forms_app',
     'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,4 @@ MEDIA_ROOT = 'uploads'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
